@@ -241,9 +241,6 @@ function book() {
                 $('#book_image').attr('src', $('#book_image').data('default-image'));
                 $('[name = reset_image]').val(true);
             });
-            $('#myModal').on('click', function () {
-                alert($('[name = reset_image]').val());
-            });
         });
         this.eventUpdate();
     };
