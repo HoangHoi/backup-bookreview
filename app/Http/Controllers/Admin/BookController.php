@@ -30,6 +30,8 @@ class BookController extends Controller
             'category_id',
             'published_at',
             'book_image',
+            'avg_rate_point',
+            'num_favorite',
         ]);
         if (Book::create($bookRequest)) {
             return redirect()->back()->with([

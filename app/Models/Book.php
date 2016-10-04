@@ -29,7 +29,7 @@ class Book extends Model
 
     public function setBookImageAttribute($imageUpload)
     {
-        $imgFolder = config('fileupload.book_image_dir');
+        $imgFolder = public_path(config('fileupload.book_image_dir'));
         if (!File::isDirectory($imgFolder)) {
             File::makeDirectory($imgFolder, 755, true);
         }
@@ -52,9 +52,23 @@ class Book extends Model
         return $this->attributes['book_image'] = config('common.book_image_default');
     }
 
+    public function setAvgRatePointAttribute($avgRatePoint)
+    {
+        return $this->attributes['avg_rate_point'] = $avgRatePoint ?: 0;
+    }
+
+    public function setNumFavoriteAttribute($numFavorite)
+    {
+        return $this->attributes['num_favorite'] = $numFavorite ?: 0;
+    }
+
     public function getBookImageAttribute($value)
     {
-        return asset(config('fileupload.book_image_dir') . $value);
+        if (File::exists(public_path(config('fileupload.book_image_dir') . $value))) {
+            return asset(config('fileupload.book_image_dir') . $value);
+        }
+
+        return asset(config('fileupload.book_image_dir') . config('common.book_image_default'));
     }
 
     public function getPublishedAtAttribute($value)
@@ -64,7 +78,9 @@ class Book extends Model
 
     public function setPublishedAtAttribute($value)
     {
-        return $this->attributes['published_at'] = Carbon::createFromFormat(config('common.publish_date_format'), $value);
+        return $this->attributes['published_at'] = $value ?
+            Carbon::createFromFormat(config('common.publish_date_format'), $value)
+            : Carbon::now()->format(config('common.publish_date_format'));
     }
 
     public function delete()

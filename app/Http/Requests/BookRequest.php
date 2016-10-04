@@ -27,6 +27,7 @@ class BookRequest extends Request
             'title' => 'required',
             'category_id' => 'required|exists:categories,id',
             'book_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'published_at' => 'date_format:' . config('common.publish_date_format'),
         ];
     }
 }

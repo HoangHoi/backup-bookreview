@@ -20,4 +20,20 @@ class Category extends Model
     {
         return $this->hasMany('App\Models\Category', 'category_parent_id');
     }
+
+    public function setCategoryParentIdAttribute($parentId) {
+        return $this->attributes['category_parent_id'] = $parentId ? $parentId : null;
+    }
+
+    public function delete()
+    {
+        try {
+            parent::delete();
+            $this->books()->delete();
+
+            return true;
+        } catch (Exception $ex) {
+            return false;
+        }
+    }
 }
