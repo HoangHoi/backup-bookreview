@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 20, 2016, 4:49:05 PM
+    Author     : hoanghoi
+*/
+
+
+.has-chil, .delete, .edit {
+    color: blueviolet;
+    cursor: pointer;
+}
+table tbody, table tfoot, table thead {
+    vertical-align: baseline;
+}
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+}
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    display: block;
+    font-family: FontAwesome;
+}
+td {
+    max-width: 100px;
+    word-wrap:break-word;
+}

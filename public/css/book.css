@@ -1,0 +1,174 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 28, 2016, 10:18:24 PM
+    Author     : hoanghoi
+*/
+
+.nav-pills>li>a {
+    border-radius: 0px;
+}
+.nav-stacked>li {
+    margin-top: 0px;
+    margin-left: 0px;
+    border-bottom: 1px dashed #dadada;
+    border-right: 2px solid burlywood;
+    /*position: initial;*/
+}
+.nav-stacked>li>a:hover {
+    color: blue;
+}
+.nav-stacked>li.has-chil:hover {
+    border-right: 0px;
+}
+.nav-stacked>li.has-chil:hover i {
+    color: blue;
+}
+.nav-stacked>li.has-chil i {
+    color: #dadada;
+}
+.nav-stacked>li:last-child {
+    border-bottom: 0px;
+}
+.nav-stacked {
+    border: 2px solid burlywood;
+    border-right: 0px;
+    position: relative;
+}
+#book-menu {
+    background-color: white;
+}
+#book-menu li>ul {
+    background-color: white;
+    position: absolute;
+    left: 100%;
+    top: -2px;
+    width: 100%;
+    display: none;
+}
+#book-menu>li ul>li {
+    padding: 3px;
+}
+#book-menu li:hover>ul {
+    display: block !important;
+    height: auto !important;
+    z-index: 1000;
+    visibility: visible;
+}
+.book-content {
+    height: 34em;
+}
+.book-content .book-image {
+    height: 19em;
+    width: 100%;
+    position: relative;
+}
+.book-content .book-image img {
+    max-width: 100%;
+    height: 100%;
+    padding: 13px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+}
+.book-content:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.book-content .book-top .fa-bookmark-o {
+    color: gray;
+}
+.book-content .book-top .fa-bookmark {
+    color: blueviolet;
+}
+.book-content .book-top .book-favorite {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+.menu-mark {
+    padding: 10px;
+}
+.menu-mark li {
+    padding: 5px;
+    border-bottom: 1px dashed #122b40;
+    vertical-align: middle;
+}
+.menu-mark li i {
+    bottom: -2px;
+    position: relative;
+}
+.menu-mark li:last-child {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+}
+.body-title {
+    color: #008340;
+    border-bottom: 1px dashed #008340;
+    padding-bottom: 5px;
+}
+.post-info.when-link {
+    text-decoration: none;
+}
+.post-info.when-link:hover {
+    color: #333;
+}
+.post-info-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+.post-info {
+    display: inline-block;
+    margin-right: 8px;
+    color: #969696;
+    font-size: 12px;
+    line-height: 125%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.user-name {
+    color: blue;
+}
+.post-summary {
+    display: block;
+    margin-bottom: 14px;
+    line-height: 144%;
+    padding-right: 4px;
+}
+article p {
+    font-weight: 300;
+    font-family: "Times New Roman", Times, serif;
+}
+.item-review {
+    margin-bottom: 40px;
+}
+.book-detail .book-content {
+    height: 500px;
+    margin-bottom: 60px;
+}
+.mark-dropdown {
+    color: tomato;
+    cursor: pointer;
+}
+.book-detail .book-info {
+    float: left;
+    border-right: dashed;
+}
+.description-content {
+    overflow: auto;
+}
+.board-description {
+    height: 370px;
+    background-color: #1d9d74;
+    width: 100%;
+}
+.item-review {
+    width:100%;
+    box-shadow: 4px 4px 2px #888888;
+}
+.book-detail .book-top .btn-info {
+    margin-left: 70px;
+}

@@ -1,0 +1,568 @@
+header {
+    display: block;
+}
+
+.header-container {
+    padding: 0.01em 16px;
+    margin-bottom: 50px;
+}
+
+.btn, .btn-block {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 6px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none!important;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.sidebar {
+    display: block;
+    float: left;
+    width: 250px;
+    height: 100%;
+    background: #333;
+}
+
+.sidebar-nav-item-icon {
+    padding-right: 5px;
+}
+
+.containter {
+    margin-left: 300px;
+}
+
+.book-list {
+    display: inline;
+}
+
+.book-list li {
+    list-style: none;
+}
+
+.navbar .dropdown-user {
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    margin: 10px 10px auto auto;
+}
+
+.navbar .dropdown-user img {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.profile .profile-header {
+    height: 50px;
+    padding: 10px 10px;
+    font-size: 24px;
+    font-family: Roboto, sans-serif;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    background-color: #555;
+}
+
+.profile .profile-header .icon-edit {
+    border: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile .show-profile .row .cell {
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.view-profile .show-profile .row .cell-value {
+    border-bottom: 1px solid #555;
+}
+
+.profile .avatar {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.avatar img {
+    position: relative;
+    margin-top: 50px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 50% 50% 0 50%;
+    width: 100px;
+}
+
+.profile .show-profile input {
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom:1px solid #757575;
+}
+
+.profile .show-profile input:focus {
+    outline: none;
+}
+
+.profile .show-profile .bar {
+    position:relative;
+    display:block;
+    width:300px;
+}
+
+.profile .show-profile .bar:before, .bar:after {
+    content: '';
+    height: 2px; 
+    width: 0;
+    bottom: 1px; 
+    position: absolute;
+    background: #5264AE; 
+    transition: 0.2s ease all; 
+    -moz-transition: 0.2s ease all; 
+    -webkit-transition: 0.2s ease all;
+}
+
+.profile .show-profile .bar:before {
+    left: 50%;
+}
+
+.profile .show-profile .bar:after {
+    right: 50%; 
+}
+
+.profile .show-profile input:focus ~ .bar:before, .profile .show-profile input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.profile .show-profile .required {
+    margin: 0 5px;
+}
+
+.profile .show-profile .required:before {
+    content: "*";
+    color: #333;
+    height: 14px;
+    padding: 0 1px;
+}
+
+.box-profile {
+    margin-top: 45px;
+    margin-bottom: 35px;
+    font-size: 14px;
+}
+
+.box-profile .row .content-profile {
+    padding-left: 25px;
+    font-size: 13px;
+    color: #5b5b5b;
+}
+
+.box-profile .row .content-profile .name-profile {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+a:-webkit-any-link {
+    cursor: auto;
+}
+
+.box-profile .row .box-info-like {
+    padding: 20px 15px 15px;
+    background-color: #f6f6f6;
+    border-radius: 3px;
+}
+
+.box-profile .row .box-info-like a {
+    display: block;
+    font-size: 14px;
+    color: #000;
+}
+
+div .container .box-title {
+    margin-bottom: 45px;
+    margin-top: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.box-tile .list-title {
+    display: block;
+    float: left;
+}
+
+.list-title li a.selected {
+    font-weight: 600;
+    color: #000;
+}
+
+.list-title li {
+    padding: 5px 15px;
+    display: inline-block;
+}
+
+.row .box-review {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.pre-review-post {
+    padding: 0;
+    border-radius: 0;
+    background-color: #f6f6f6;
+    border-color: #f6f6f6;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.pre-review-post .box-top {
+    width: 200px;
+    float: left;
+}
+
+.pre-review-post .box-top img {
+    width: 200px;
+    height: 130px;
+    background-position: center!important;
+    background-size: cover!important;
+    background-repeat: none!important;
+}
+
+.pre-review-post .box-top .pre-footer-review-post {
+    width: 200px;
+    height: 18px;
+    background-color: #000;
+    color: #e1df19;
+    text-align: center;
+    font-size: 11px;
+}
+
+.pre-review-post .pre-review {
+    overflow: hidden;
+    padding-left: 30px;
+}
+
+.pre-review .pre-title-review {
+    margin-bottom: 8px;
+}
+
+.pre-review .predetail {
+    overflow: hidden;
+    height: 40px;
+}
+
+.pre-review .predetail {
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+.break-word {
+    word-wrap: break-word;
+    word-break: keep-all;
+    word-break: break-word;
+}
+
+.pre-review-post .pre-review .pre-author-review {
+    margin-bottom: 8px;
+}
+
+.pre-review .pre-author-review .mini-date {
+    display: inline-block;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.pre-review-post .pre-review .pre-title-review {
+    display: inline-block;
+    font-size: 18px;
+    color: #343434;
+    font-weight: 600;
+}
+
+.box-profile .content-profile .btn-edit {
+    border: 1px solid rgba(255,153,0,0.9);
+    color: rgba(255,153,0,0.9);
+    font-size: 12px;
+    line-height: 3;
+    padding: 0 2em;
+    border-radius: 100px;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    background-color: transparent;
+}
+
+.box-profile .content-profile .btn-edit:hover {
+    background-color: #3c763d;
+}
+
+/*
+    style for review.create
+*
+*/
+.preview-book {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: rgba(0,0,0,.075);
+}
+
+.preview-book img {
+    margin: 10px auto;
+}
+
+/*
+    Notification
+*/
+.notification {
+    position: fixed;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    border-radius: 4px;
+    font-weight: 700;
+    align-items: stretch;
+    perspective: 1000px;
+    opacity: 0.6;
+    z-index: 2016;
+}
+
+.notification .icon {
+    padding: 20px;
+    color: white;
+    border-radius: 4px 0px 0px 4px;
+    overflow: hidden;
+}
+
+.notification .text {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 0px 4px 4px 0px;
+}
+
+.notification:hover {
+    opacity: 1;
+}
+
+.success-notification .icon {
+    background: #0097A7;
+}
+
+.success-notification .text {
+    background: rgb(51, 153, 255);
+}
+
+.danger-notification .icon {
+    background: rgb(255, 0, 0);
+}
+
+.danger-notification .text {
+    background: rgb(255, 102, 102);
+}
+
+/*
+*
+    review.create
+*
+*/
+.review-create-wrapper {
+    margin-left: -30px;
+    margin-right: -2px;
+}
+
+.review-create-wrapper .half-editor-create {
+    float: left;
+    width: 50%;
+}
+
+.review-create-wrapper .half-previewing {
+    width:50%;
+    height: 575px;
+    float: left;
+    overflow: scroll;
+    border: 1px solid #f0f0f0;
+    border-top: 38px solid #f0f0f0;
+    border-bottom: 22px solid #f0f0f0;
+}
+
+/*
+*
+    review.show
+*
+*/
+.btn-review-action {
+    display: inline-flex;
+}
+
+.btn-review-action > .btn{
+    margin-right: 15px;
+}
+
+.post-preview > a {
+    color: #333333;
+}
+
+.post-preview > a:hover,
+.post-preview > a:focus {
+    text-decoration: none;
+    color: #0085A1;
+}
+
+.post-preview > a > .post-title {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.post-preview > a > .post-subtitle {
+    margin: 0;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.post-preview > .post-meta {
+    color: #777777;
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+}
+
+.post-preview > .post-meta > a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+    color: #0085A1;
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+    .post-preview > a > .post-title {
+        font-size: 36px;
+    }
+}
+
+.comment{
+    margin-bottom: 25px;
+}
+
+.user-ava {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
+
+.user-info {
+    margin-top: 10px;
+}
+
+.user-name {
+    float: left;
+    margin-left: 10px;
+}
+
+.user-name>h4 {
+    margin: 5px;
+}
+
+.comment-time {
+    font-size: 12px;
+    font-style: italic;
+    color: #aaa;
+}
+
+.comment-body {
+    clear: both;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+.comment-title {
+    margin-bottom: 30px;
+}
+
+.comment-title>span {
+    margin-right: 15px;
+}
+
+.glyphicon.glyphicon-send {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+}
+
+.glyphicon.glyphicon-send:hover {
+   cursor: pointer;
+   font-size: 28px;
+}
+
+.comment-body i {
+    display: none;
+}
+
+.comment .comment-body .dropdown {
+    display: inline-flex;
+}
+
+.comment .comment-body:hover > .dropdown i {
+    display: inline;
+    color: #000000;
+}
+
+.comment .item-comment {
+    border-bottom: 1px solid gray;
+}
+
+.comment .comment-body .dropdown-menu button {
+    background: inherit;
+    border: none;
+    margin-left: 10px;
+}
+
+.comment .comment-body .dropdown-menu button:hover {
+    color: blue;
+}
+
+/*
+    Footer
+*/
+.img-circle {
+    border-radius: 50%;
+}
+
+.hover-opacity:hover {
+    opacity: 0.8;
+}
+
+#footer {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  background: 
+    linear-gradient(
+        rgba(240, 212, 0, 0.45), 
+        rgba(0, 0, 0, 0.45)
+    ),
+    url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+}
