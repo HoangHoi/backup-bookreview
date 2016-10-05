@@ -80,7 +80,7 @@ function review() {
                 {'data': 'user.name'},
                 {
                     'data': function (source) {
-                        return source.content.trunc(600, true);
+                        return source.content.trunc(150, true);
                     },
                     'class': 'read-more',
                 },
