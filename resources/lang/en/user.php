@@ -84,4 +84,5 @@ return [
         'cancel' => 'Cancel',
     ],
     'write_content' => 'Write :name',
+    'top_reviewer' => 'Top reviewer',
 ];

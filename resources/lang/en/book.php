@@ -36,4 +36,5 @@ return [
     'rate_book' => 'Rate this book',
     'comfirm_login' => 'You have to login to do this action',
     'category_empty' => 'Category is empty',
+    'best_book' => 'Best book',
 ];
