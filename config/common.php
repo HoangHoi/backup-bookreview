@@ -26,4 +26,7 @@ return [
     'review_min_text_length' => '300',
     'num_entry_per_page' => 9,
     'rate_point_max' => 5,
+    'top_review_min_text_length' => 200,
+    'limit_top_review' => 10,
+    'limit_review' => 30,
 ];

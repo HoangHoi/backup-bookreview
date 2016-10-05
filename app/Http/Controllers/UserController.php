@@ -31,7 +31,9 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        return view('user.profile')->with(['userInfo' => $userInfo, 'action' => $action]);
+        $reviews = $userInfo->reviews()->paginate(config('common.num_entry_per_page'));
+
+        return view('user.profile')->with(['userInfo' => $userInfo, 'reviews' => $reviews, 'action' => $action]);
     }
 
     public function getEditProfile()

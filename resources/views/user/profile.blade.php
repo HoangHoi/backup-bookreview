@@ -45,32 +45,44 @@
 <div class="container">
     <div class="row box-review">
         <div class="col-lg-12">
-            <div class="pre-review-post">
-                <div class="box-top">
-                    <a href="#">
-                        <img src="http://nhanam.vn/sites/default/files/styles/sach_moi_117x174/public/chandikhongmoi_1.6cm-01.jpg?itok=KtT3Xbfj" alt="book img">
-                    </a>
-                    <div class="pre-footer-review-post">
-                        <span>5 {{ trans('user.profile.reviews') }}</span>
-                    </div>
-                </div>
-                <div class="pre-review">
-                    <div class="pre-title-review">This is title</div>
-                    <div class="pre-author-review">
-                        <a href="{{ route('users.show', $userInfo->id) }}" class="author-link-profile">
-                            <span>{{ $userInfo->name }}</span>
-                        </a>
-                        <div class="mini-date">
-                            <span>{{ trans('label.posted') }}</span>
-                            <span>19/09/2016</span>
+            @if (count($reviews))
+                @foreach($reviews as $review)
+                    <div class="row" style="margin-bottom: 25px;">
+                        <div class="pre-review-post col-md-4">
+                            <div class="box-top">
+                                <div class="pre-review-book-image">
+                                    <a href="{{ route('book.show', $review->book->id) }}">
+                                        <img src="{{ $review->book->book_image }}">
+                                    </a>
+                                </div>
+                                <div class="pre-footer-review-post">
+                                    <span>{{ trans('book.num_reviews', ['num' => $review->book->reviews->count()]) }}</span>
+                                </div>
+                            </div>
+                            <div class="pre-review col-md-8">
+                                <div class="pre-title-review">{{ $review->book->title }}</div>
+                                <div class="pre-author-review">
+                                    <a href="{{ route('users.show', $review->user->id) }}" class="author-link-profile">
+                                        <img class="image-tiny image-circle" src="{{ $review->user->avatar_link }}">
+                                        <span>{{ $review->user->name }}</span>
+                                    </a>
+                                    <div class="mini-date">
+                                        <span>{{ trans('label.posted') }}</span>
+                                        <span>{{ $review->created_at }}</span>
+                                    </div>
+                                </div>
+                                <article class="pre-detail break-word">
+                                    {!! str_limit($review->content,config('common.review_min_text_length')) !!}
+                                </article>
+                                <a href="{{ route('reviews.show', $review->id) }}" class="button-round button-continue">{{ trans('book.continue_reading') }}</a>
+                            </div>
                         </div>
                     </div>
-                    <p class="pre-detail break-word">
-                        Chân đi không mỏi: Hành trình Đông Nam Á là những trải nghiệm tinh tế, giàu cảm xúc và tràn đầy sức sống của một tâm hồn tự do trên khắp các vùng đất Đông Nam Á. Từng trang sách sẽ "mê hoặc" người đọc trong cảm giác tưởng chừng như cái nắng cháy da trên đảo Koh Samui (Thái Lan) đang đốt trên cánh tay, bình minh trên đỉnh Ramelau (Đông Timor) đang chiếu ngời khuôn mặt, những ánh tàn cuối ngày của Kuta (Bali, Indonesia) vẫn còn nhuộm vàng mặt biển, hay tưởng như những đàn cá mập dưới đáy biển Sipadan (Sabah, Malaysia) vẫn đang kiêu kỳ rẽ nước ngay trên bình dưỡng khí lặn, rồi còn những khi lái thuyền lao thẳng vào một ghềnh nước trên sông Nam Tha (Luang Nam Tha, Lào), rồi những đêm uống bia trên bãi biển El Nido (Philippines,)…
-                    </p>
-                    <div class="tag"><mark>#aaa</mark></div>
-                </div>
-            </div>
+                @endforeach
+                <span>
+                    {!! $reviews->links() !!}
+                </span>
+            @endif
         </div>
     </div>
 </div>

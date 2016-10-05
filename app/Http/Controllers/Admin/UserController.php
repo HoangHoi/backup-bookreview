@@ -113,6 +113,7 @@ class UserController extends Controller
                 'gender',
                 'password',
                 'avatar_link',
+                'is_admin',
             ]);
             User::create($userRequest);
 

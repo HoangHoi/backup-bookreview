@@ -221,27 +221,33 @@ div .container .box-title {
 .pre-review-post {
     padding: 0;
     border-radius: 0;
+    height: 200px;
+    width: 100%;
     background-color: #f6f6f6;
     border-color: #f6f6f6;
-    margin-bottom: 25px;
     position: relative;
 }
 
 .pre-review-post .box-top {
-    width: 200px;
+    height: 150px;
     float: left;
+    position: relative;
 }
 
-.pre-review-post .box-top img {
-    width: 200px;
-    height: 130px;
-    background-position: center!important;
-    background-size: cover!important;
-    background-repeat: none!important;
+.box-top img {
+    width: 120%;
+    height: 100%;
+}
+
+.pre-review-post .box-top .pre-review-book-image {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
 }
 
 .pre-review-post .box-top .pre-footer-review-post {
-    width: 200px;
+    width: 130px;
     height: 18px;
     background-color: #000;
     color: #e1df19;
@@ -417,8 +423,9 @@ div .container .box-title {
     color: #333333;
 }
 
-.post-preview > a:hover,
-.post-preview > a:focus {
+a:link,
+a:hover,
+a:focus {
     text-decoration: none;
     color: #0085A1;
 }
@@ -565,4 +572,23 @@ div .container .box-title {
         rgba(0, 0, 0, 0.45)
     ),
     url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+}
+/*
+    index
+*/
+.image-tiny {
+    height: 30px;
+    width: 30px;
+}
+
+.image-circle {
+    border-radius: 50%;
+}
+
+#marquee-left {
+    min-height: 50em;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #aaa;
+    opacity: 0.8;"
 }

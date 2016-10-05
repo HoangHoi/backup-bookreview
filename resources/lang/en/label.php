@@ -21,4 +21,6 @@ return [
         'founder2_des' => 'Many thanks for developing admin activity',
         'copyright' => 'Copyright 10-2016',
     ],
+    'null_reviews' => 'No reviews available',
+    'top_review' => 'Top Review',
 ];

@@ -58,4 +58,14 @@ class Review extends Model
             return false;
         }
     }
+
+    public static function getTopReviewByLike()
+    {
+        $reviews = Review::withCount('likeEvents')
+            ->orderBy('like_events_count', 'desc')
+            ->limit(config('common.limit_top_review'))
+            ->get();
+
+        return $reviews;
+    }
 }

@@ -70,4 +70,5 @@ return [
         'follow' => 'Follow',
         'unfollow' => 'UnFollow',
     ],
+    'write_content' => 'Write :name',
 ];

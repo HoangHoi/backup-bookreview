@@ -22,6 +22,7 @@ return [
     'all_book' => 'All book',
     'mark' => 'Mark',
     'continue_reading' => 'Continue reading →',
+    'num_reviews' => ':num reviews',
     'mark_as' => [
         'reading' => 'Mark as reading',
         'read' => 'Mark as read',

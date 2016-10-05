@@ -65,7 +65,7 @@
                         <div class="col-md-8">
                             {!! Form::text('name', null, [
                                 'class' => 'form-control',
-                                'placeholder' => trans('user.write', ['name' => trans('user.name')])
+                                'placeholder' => trans('user.write_content', ['name' => trans('user.name')])
                             ]) !!}
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="col-md-8">
                             {!! Form::email('email', null, [
                                 'class' => 'form-control',
-                                'placeholder' => trans('user.write', ['name' => trans('user.email')])
+                                'placeholder' => trans('user.write_content', ['name' => trans('user.email')])
                             ]) !!}
                         </div>
                     </div>

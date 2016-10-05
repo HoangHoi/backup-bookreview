@@ -29,4 +29,12 @@ class UserCreateRequest extends Request
             'gender' => 'required|boolean',
         ];
     }
+
+    public function all()
+    {
+        $attributes = parent::all();
+        $attributes['email'] = strtolower($attributes['email']);
+
+        return $attributes;
+    }
 }

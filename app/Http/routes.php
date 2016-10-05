@@ -1,8 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'HomeController@index',
+]);
 
 Route::group(['prefix' => 'book'], function () {
     Route::get('/', ['uses' => 'BookController@index', 'as' => 'book.index']);
