@@ -48,4 +48,8 @@ $(document).ready(function () {
         theme: "square"
     };
     $("#input-autocomplete").easyAutocomplete(options);
+    $('.btn-show-tab').on('click', function() {
+        $('.list-tab').hide();
+        $('#tab-' + $(this).data('tab')).show();
+    });
 });

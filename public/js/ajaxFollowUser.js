@@ -11,9 +11,8 @@ $('.btn-follow').on('click', function() {
                 window.location.href = redirectPath;
             } else {
                 $('.btn-follow').text(msg['changeAction']);
-                $('.box-profile .box-info-like a:nth-child(2) p:nth-child(2)').text(msg['num_followings']);
-                $('.box-profile .box-info-like a:nth-child(3) p:nth-child(2)').text(msg['num_followers']);
-            }
+                $('.box-profile .box-info-like div:nth-child(2) mark:nth-child(2)').text(msg['num_followings']);
+                $('.box-profile .box-info-like div:nth-child(3) mark:nth-child(2)').text(msg['num_followers']);
         },
         error: function(xhr, ajaxOptions, thrownerror) {
             alert('Error ' + xhr.status);
