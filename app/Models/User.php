@@ -88,7 +88,7 @@ class User extends Authenticatable
         if (!File::isDirectory($imgFolder)) {
             File::makeDirectory($imgFolder, 775, true);
         }
-        if (is_null($avatar)) {
+        if (!is_file($avatar)) {
             if (!isset($this->attributes['avatar_link'])) {
                 $this->attributes['avatar_link'] = config('upload.default');
             }

@@ -97,12 +97,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user'], function() {
 
 Route::post('signup', [
     'uses' => 'AuthUserController@postSignup',
-    'as' => 'signup'
+    'as' => 'signup',
+    'middleware' => 'email',
 ]);
 
 Route::post('signin', [
     'uses' => 'AuthUserController@postSignin',
-    'as' => 'signin'
+    'as' => 'signin',
+    'middleware' => 'email',
 ]);
 
 Route::resource('users', 'UserController');

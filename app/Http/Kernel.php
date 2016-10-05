@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\Admin::class,
         'notAdmin' => \App\Http\Middleware\AdminRedirect::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'email' => \App\Http\Middleware\CheckSensitiveEmail::class,
     ];
 }

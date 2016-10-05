@@ -13,7 +13,7 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "doctrine/dbal": "^2.5",
         "intervention/image": "^2.3",
-	"ext-gd": "*"
+        "ext-gd": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
