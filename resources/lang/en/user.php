@@ -26,6 +26,7 @@ return [
         'post_review' => 'Reviews Posted',
         'reviews' => 'reviews',
         'not_exist' => 'User does not exist',
+        'book_marked' => 'Book marked',
     ],
     'reviews' => 'Reviews',
     'write' => 'By :name',

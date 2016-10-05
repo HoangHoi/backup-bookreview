@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         if (Auth::user()) {
             if (Auth::user()->id != $id) {
-                $action = UserService::checkFollowed($id, Auth::user()->id) ? trans('user.profile.unfollow') : trans('user.actions.follow');
+                $action = UserService::checkFollowed($id, Auth::user()->id) ? trans('user.actions.unfollow') : trans('user.actions.follow');
             } else {
                 $action = trans('user.actions.edit');
             }
@@ -26,14 +26,37 @@ class UserController extends Controller
             $action = null;
         }
 
-        $userInfo = User::withCount(['followers', 'followings'])->find($id);
+        $userInfo = User::withCount(['followers', 'followings', 'reviews'])->find($id);
         if (is_null($userInfo)) {
             return redirect()->route('home');
         }
 
+        $this->id = $id;
+        $readBooks = $userInfo->readBooks()
+            ->with([
+                'marks' => function($query) {
+                    $query->where('user_id', $this->id);
+                },
+                'favorites' => function($query) {
+                    $query->where('user_id', $this->id);
+                },
+            ])
+            ->orderBy('published_at', 'desc')
+            ->paginate(config('common.num_entry_per_page'));
+        $readingBooks = $userInfo->readingBooks()
+            ->with([
+                'marks' => function($query) {
+                    $query->where('user_id', $this->id);
+                },
+                'favorites' => function($query) {
+                    $query->where('user_id', $this->id);
+                },
+            ])
+            ->orderBy('published_at', 'desc')
+            ->paginate(config('common.num_entry_per_page'));
         $reviews = $userInfo->reviews()->paginate(config('common.num_entry_per_page'));
 
-        return view('user.profile')->with(['userInfo' => $userInfo, 'reviews' => $reviews, 'action' => $action]);
+        return view('user.profile')->with(['userInfo' => $userInfo, 'reviews' => $reviews, 'readBooks' => $readBooks, 'readingBooks' => $readingBooks, 'action' => $action]);
     }
 
     public function getEditProfile()

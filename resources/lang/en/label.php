@@ -24,4 +24,5 @@ return [
     ],
     'null_reviews' => 'No reviews available',
     'top_review' => 'Top Review',
+    'null_marked_book' => 'No book was marked',
 ];

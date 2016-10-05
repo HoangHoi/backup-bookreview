@@ -165,6 +165,52 @@ header {
     padding: 0 1px;
 }
 
+.item-user-follow {
+    margin: 20px auto;
+}
+
+.item-user-info .item-user-info {
+    text-align: center;
+    font-weight: 1.5em;
+}
+
+.hvr-bounce-to-right:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #2098d1;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
+    color: blue;
+}
+
+.hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+.mark-dot {
+    height: 10px;
+    width: 5px;
+}
+
 .box-profile {
     margin-top: 45px;
     margin-bottom: 35px;
@@ -243,8 +289,12 @@ div .container .box-title {
 }
 
 .box-top img {
-    width: 120%;
-    height: 100%;
+    height: 80%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .pre-review-post .box-top .pre-review-book-image {
@@ -255,12 +305,9 @@ div .container .box-title {
 }
 
 .pre-review-post .box-top .pre-footer-review-post {
-    width: 130px;
+    width: 155px;
     height: 18px;
-    background-color: #000;
-    color: #e1df19;
-    text-align: center;
-    font-size: 11px;
+    background-color: orange;
 }
 
 .pre-review-post .pre-review {
@@ -689,4 +736,9 @@ a:focus {
     animation-timing-function: ease-in-out;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
+}
+
+.btn-round {
+    border-radius: 20px;
+    margin: auto 10px;
 }

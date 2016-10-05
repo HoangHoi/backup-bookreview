@@ -20,69 +20,84 @@
             @endif
         </div>
         <div class="col-md-4 col-lg-4 box-info-like">
-            <a href="#">
+            <div>
                 <p class="col-md-8">{{ trans('user.profile.review') }}</p>
-                <p class="col-md-4">0</p>
-            </a>
-            <a href="#">
+                <mark class="col-md-4">{{ $userInfo->reviews_count }}</mark>
+            </div>
+            <div>
                 <p class="col-md-8">{{ trans('user.profile.following') }}</p>
-                <p class="col-md-4">{{ $userInfo->followings_count }}</p>
-            </a>
-            <a href="#">
+                <mark class="col-md-4">{{ $userInfo->followings_count }}</mark>
+            </div>
+            <div>
                 <p class="col-md-8">{{ trans('user.profile.follower') }}</p>
-                <p class="col-md-4">{{ $userInfo->followers_count }}</p>
-            </a>
+                <mark class="col-md-4">{{ $userInfo->followers_count }}</mark>
+            </div>
         </div>
     </div>
 </div>
 <div class="row col-lg-12 box-title box-title-children">
     <ul class="list-title">
         <li>
-            <a href="#" class="selected">{{ trans('user.profile.post_review') }}</a>
+            <button class="btn btn-info btn-round btn-show-tab" data-tab="posted-review">
+                {{ trans('user.profile.post_review') }}
+            </button>
+            <button class="btn btn-info btn-round btn-show-tab" data-tab="read-book">
+                {{ trans('book.mark_as.read') }}
+            </button>
+            <button class="btn btn-info btn-round btn-show-tab" data-tab="reading-book">
+                {{ trans('book.mark_as.reading') }}
+            </button>
+            <button class="btn btn-info btn-round btn-show-tab" data-tab="follower">
+                {{ trans('user.profile.follower') }}
+            </button>
+            <button class="btn btn-info btn-round btn-show-tab" data-tab="following">
+                {{ trans('user.profile.following') }}
+            </button>
         </li>
     </ul>
 </div>
 <div class="container">
-    <div class="row box-review">
+    <div class="row box-review list-tab" id="tab-posted-review" style="display: none;">
         <div class="col-lg-12">
             @if (count($reviews))
                 @foreach($reviews as $review)
-                    <div class="row" style="margin-bottom: 25px;">
-                        <div class="pre-review-post col-md-4">
-                            <div class="box-top">
-                                <div class="pre-review-book-image">
-                                    <a href="{{ route('book.show', $review->book->id) }}">
-                                        <img src="{{ $review->book->book_image }}">
-                                    </a>
-                                </div>
-                                <div class="pre-footer-review-post">
-                                    <span>{{ trans('book.num_reviews', ['num' => $review->book->reviews->count()]) }}</span>
-                                </div>
-                            </div>
-                            <div class="pre-review col-md-8">
-                                <div class="pre-title-review">{{ $review->book->title }}</div>
-                                <div class="pre-author-review">
-                                    <a href="{{ route('users.show', $review->user->id) }}" class="author-link-profile">
-                                        <img class="image-tiny image-circle" src="{{ $review->user->avatar_link }}">
-                                        <span>{{ $review->user->name }}</span>
-                                    </a>
-                                    <div class="mini-date">
-                                        <span>{{ trans('label.posted') }}</span>
-                                        <span>{{ $review->created_at }}</span>
-                                    </div>
-                                </div>
-                                <article class="pre-detail break-word">
-                                    {!! str_limit($review->content,config('common.review_min_text_length')) !!}
-                                </article>
-                                <a href="{{ route('reviews.show', $review->id) }}" class="button-round button-continue">{{ trans('book.continue_reading') }}</a>
-                            </div>
-                        </div>
-                    </div>
+                    @include('includes.listReview')
                 @endforeach
                 <span>
                     {!! $reviews->links() !!}
                 </span>
             @endif
+        </div>
+    </div>
+    <div class="row box-review list-tab" id="tab-read-book" style="display: none;">
+        <div class="col-lg-12">
+            @if (count($readBooks))
+                @foreach($readBooks as $book)
+                    @include('includes.bookShow')
+                @endforeach
+            @else
+                {{ trans('label.null_marked_book') }}
+            @endif
+        </div>
+        <span>{!! $readBooks->links() !!}</span>
+    </div>
+    <div class="row box-review list-tab" id="tab-reading-book" style="display: none;">
+        <div class="col-lg-12">
+            @if (count($readingBooks))
+                @foreach($readingBooks as $book)
+                    @include('includes.bookShow')
+                @endforeach
+            @else
+                {{ trans('label.null_marked_book') }}
+            @endif
+        </div>
+        <span>{!! $readingBooks->links() !!}</span>
+    </div>
+    <div class="box-review list-tab" id="tab-follower">
+        <div class="col-lg-12">
+            @foreach($userInfo->followers as $userFollow)
+                @include('includes.listUser')
+            @endforeach
         </div>
     </div>
 </div>
