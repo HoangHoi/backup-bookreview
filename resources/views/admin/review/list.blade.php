@@ -1,8 +1,8 @@
 @extends('layouts.adminMaster')
 
-@section('page_title', trans('admin.title_home'))
+@section('page_title', trans('admin.list', ['name' => trans('admin.review')]))
 
-@section('main_title', trans('admin.list', ['name' => trans('admin.review')]) )
+@section('main_title', trans('admin.list', ['name' => trans('admin.review')]))
 
 @section('content')
 <div id="message"></div>

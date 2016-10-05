@@ -2,6 +2,7 @@
 
 return [
     'category_id' => 'Category',
+    'category' => 'Category',
     'choose_category' => 'Choose category...',
     'title' => 'Book title',
     'author' => 'Author',
@@ -22,6 +23,7 @@ return [
     'all_book' => 'All book',
     'mark' => 'Mark',
     'continue_reading' => 'Continue reading →',
+    'not_found' => 'Book not found',
     'num_reviews' => ':num reviews',
     'mark_as' => [
         'reading' => 'Mark as reading',

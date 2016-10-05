@@ -1,8 +1,8 @@
 @extends('layouts.adminMaster')
 
-@section('page_title', trans('admin.title_home'))
+@section('page_title', trans('admin.create', ['name' => 'category']))
 
-@section('main_title', trans('admin.create', ['name' => 'category']) )
+@section('main_title', trans('admin.create', ['name' => 'category']))
 
 @section('content')
 <div class="entry_form" style="">

@@ -1,8 +1,8 @@
 @extends('layouts.adminMaster')
 
-@section('page_title', trans('admin.title_home'))
+@section('page_title', trans('admin.list', ['name' => trans('admin.user')]))
 
-@section('main_title', trans('admin.list', ['name' => trans('admin.user')]) )
+@section('main_title', trans('admin.list', ['name' => trans('admin.user')]))
 
 @section('content')
 <div id="message"></div>
@@ -115,36 +115,38 @@
 @section('script')
 {!! Html::script('js/adminUser.js') !!}
 <script type="text/javascript">
-    var url = {
-        'create': '{!! route('admin.user.ajaxCreate') !!}',
-        'list': '{!! route('admin.user.ajaxList') !!}',
-        'update': '{!! route('admin.user.ajaxUpdate') !!}',
-        'delete': '{!! route('admin.user.ajaxDelete') !!}',
-        'reset_password': '{!! route('admin.user.ajaxResetPassword') !!}',
-    };
-    var lang = {
-        'trans': {
-            'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
-            'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
-            'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
-            'create_user': '{!! trans('user.create_user') !!}',
-            'update_user': '{!! trans('user.update_user') !!}',
-            'confirm_reset_password': '{!! trans('user.confirm_reset_password') !!}',
-        },
-        'button_text': {
-            'select_page': '{!! trans('dataTable.select_page') !!}',
-            'select_all': '{!! trans('dataTable.select_all') !!}',
-            'unselect': '{!! trans('dataTable.unselect') !!}',
-            'delete_select': '{!! trans('dataTable.delete_select') !!}',
-            'create_user': '{!! trans('user.create_user') !!}',
-            'reset_password': '{!! trans('user.reset_password') !!}',
-        },
-        'response': {
-            'key_name': '{!! config('common.flash_level_key') !!}',
-            'message_name': '{!! config('common.flash_message') !!}',
-        }
-    };
-    var User = new user();
-    User.init(url, lang);
+    $(document).ready(function () {
+        var url = {
+            'create': '{!! route('admin.user.ajaxCreate') !!}',
+            'list': '{!! route('admin.user.ajaxList') !!}',
+            'update': '{!! route('admin.user.ajaxUpdate') !!}',
+            'delete': '{!! route('admin.user.ajaxDelete') !!}',
+            'reset_password': '{!! route('admin.user.ajaxResetPassword') !!}',
+        };
+        var lang = {
+            'trans': {
+                'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
+                'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
+                'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
+                'create_user': '{!! trans('user.create_user') !!}',
+                'update_user': '{!! trans('user.update_user') !!}',
+                'confirm_reset_password': '{!! trans('user.confirm_reset_password') !!}',
+            },
+            'button_text': {
+                'select_page': '{!! trans('dataTable.select_page') !!}',
+                'select_all': '{!! trans('dataTable.select_all') !!}',
+                'unselect': '{!! trans('dataTable.unselect') !!}',
+                'delete_select': '{!! trans('dataTable.delete_select') !!}',
+                'create_user': '{!! trans('user.create_user') !!}',
+                'reset_password': '{!! trans('user.reset_password') !!}',
+            },
+            'response': {
+                'key_name': '{!! config('common.flash_level_key') !!}',
+                'message_name': '{!! config('common.flash_message') !!}',
+            }
+        };
+        var User = new user();
+        User.init(url, lang);
+    });
 </script>
 @endsection

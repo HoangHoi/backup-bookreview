@@ -3,6 +3,12 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ route('home') }}">{{ trans('label.brand') }}</a>
         </div>
+        {{ Form::open(['route' => 'book.search', 'method' => 'get', 'class' => 'navbar-left navbar-form']) }}
+            <div>
+                {{ Form::text('query', null, ['id' => 'input-autocomplete', 'placeholder' => 'Search Book', 'data-url' => route('bookAutocomplete')]) }}
+            </div>
+            {{ Form::submit('Find', ['class' => 'btn btn-info']) }}
+        {{ Form::close() }}
         @if (Auth::check())
             <ul class="nav navbar-nav navbar-right user-header">
                 <li>

@@ -2,6 +2,7 @@
 
 return [
     'action' => 'action',
+    'limit_search' => 5,
     'actions' => [
         'active' => 'active',
         'deactive' => 'deactive',

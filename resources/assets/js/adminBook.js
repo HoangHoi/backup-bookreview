@@ -78,6 +78,7 @@ function book() {
                 {'data': 'title'},
                 {'data': 'author'},
                 {'data': 'num_page'},
+                {'data': 'category.name'},
                 {'data': 'published_at'},
                 {
                     'orderable': false,

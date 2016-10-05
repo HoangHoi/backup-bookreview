@@ -248,4 +248,34 @@ class BookController extends Controller
             config('book.result') => config('book.results.fail')
         ];
     }
+
+    public function bookAutocomplete(Request $request)
+    {
+        $books = Book::where('title', 'LIKE', "%{$request->input('query')}%")
+            ->take(config('book.limit_search'))
+            ->get(['title']);
+
+        return response()->json($books);   
+    }
+
+    public function searchBook(Request $request)
+    {
+        $books = Book::with([
+                'marks' => function($query) {
+                    $query->where('user_id', $this->userId);
+                },
+                'favorites' => function($query) {
+                    $query->where('user_id', $this->userId);
+                },
+            ])->where('title', 'LIKE', "%{$request->input('query')}%")
+            ->orderBy('published_at', 'desc')
+            ->paginate(config('common.num_entry_per_page'));
+
+        return view('book', [
+            'bodyTitle' => trans('book.all_book'),
+            'books' => $books,
+            'bookMenu' => $this->bookMenu(null),
+            'breadcrumbs' => $this->drawBreadcrumbs(null),
+        ]);
+    }
 }

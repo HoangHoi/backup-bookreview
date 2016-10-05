@@ -1,8 +1,8 @@
 @extends('layouts.adminMaster')
 
-@section('page_title', trans('admin.title_home'))
+@section('page_title', trans('admin.list', ['name' => trans('admin.book')]))
 
-@section('main_title', trans('admin.list', ['name' => trans('admin.book')]) )
+@section('main_title', trans('admin.list', ['name' => trans('admin.book')]))
 
 @section('content')
 <div id="message"></div>
@@ -13,6 +13,7 @@
             <th>{!! trans('book.title') !!}</th>
             <th>{!! trans('book.author') !!}</th>
             <th>{!! trans('book.pages') !!}</th>
+            <th>{!! trans('book.category') !!}</th>
             <th>{!! trans('book.published_at') !!}</th>
             <th></th>
             <th></th>
@@ -25,6 +26,7 @@
             <th>{!! trans('book.title') !!}</th>
             <th>{!! trans('book.author') !!}</th>
             <th>{!! trans('book.pages') !!}</th>
+            <th>{!! trans('book.category') !!}</th>
             <th>{!! trans('book.published_at') !!}</th>
             <th></th>
             <th></th>
@@ -177,32 +179,34 @@
 @section('script')
 {!! Html::script('js/adminBook.js') !!}
 <script type="text/javascript">
-    var url = {
-        'list': '{!! route('admin.book.ajaxList') !!}',
-        'update': '{!! route('admin.book.ajaxUpdate') !!}',
-        'delete': '{!! route('admin.book.ajaxDelete') !!}',
-        'categories': '{!! route('admin.category.ajaxList') !!}',
-    };
-    var lang = {
-        'trans': {
-            'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
-            'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
-            'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
-            'description': '{!! trans('book.description') !!}:',
-            'load_categories_error': '{!! trans('book.load_categories_error') !!}',
-        },
-        'button_text': {
-            'select_page': '{!! trans('dataTable.select_page') !!}',
-            'select_all': '{!! trans('dataTable.select_all') !!}',
-            'unselect': '{!! trans('dataTable.unselect') !!}',
-            'delete_select': '{!! trans('dataTable.delete_select') !!}',
-        },
-        'response': {
-            'key_name': '{!! config('common.flash_level_key') !!}',
-            'message_name': '{!! config('common.flash_message') !!}',
-        }
-    };
-    var Book = new book();
-    Book.init(url, lang);
+    $(document).ready(function () {
+        var url = {
+            'list': '{!! route('admin.book.ajaxList') !!}',
+            'update': '{!! route('admin.book.ajaxUpdate') !!}',
+            'delete': '{!! route('admin.book.ajaxDelete') !!}',
+            'categories': '{!! route('admin.category.ajaxList') !!}',
+        };
+        var lang = {
+            'trans': {
+                'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
+                'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
+                'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
+                'description': '{!! trans('book.description') !!}:',
+                'load_categories_error': '{!! trans('book.load_categories_error') !!}',
+            },
+            'button_text': {
+                'select_page': '{!! trans('dataTable.select_page') !!}',
+                'select_all': '{!! trans('dataTable.select_all') !!}',
+                'unselect': '{!! trans('dataTable.unselect') !!}',
+                'delete_select': '{!! trans('dataTable.delete_select') !!}',
+            },
+            'response': {
+                'key_name': '{!! config('common.flash_level_key') !!}',
+                'message_name': '{!! config('common.flash_message') !!}',
+            }
+        };
+        var Book = new book();
+        Book.init(url, lang);
+    });
 </script>
 @endsection

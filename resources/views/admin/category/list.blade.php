@@ -1,8 +1,8 @@
 @extends('layouts.adminMaster')
 
-@section('page_title', trans('admin.title_home'))
+@section('page_title', trans('admin.list', ['name' => 'category']))
 
-@section('main_title', trans('admin.create', ['name' => 'category']) )
+@section('main_title', trans('admin.list', ['name' => 'category']))
 
 @section('content')
 <div id="message"></div>
@@ -85,29 +85,31 @@
 @section('script')
 {!! Html::script('js/adminCategory.js') !!}
 <script type="text/javascript">
-    var url = {
-        'listAjax': '{!! route('admin.category.ajaxList') !!}',
-        'update': '{!! route('admin.category.ajaxUpdate') !!}',
-        'delete': '{!! route('admin.category.ajaxDelete') !!}',
-    };
-    var lang = {
-        'trans': {
-            'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
-            'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
-            'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
-        },
-        'button_text': {
-            'select_page': '{!! trans('dataTable.select_page') !!}',
-            'select_all': '{!! trans('dataTable.select_all') !!}',
-            'unselect': '{!! trans('dataTable.unselect') !!}',
-            'delete_select': '{!! trans('dataTable.delete_select') !!}'
-        },
-        'response': {
-            'key_name': '{!! config('common.flash_level_key') !!}',
-            'message_name': '{!! config('common.flash_message') !!}',
-        }
-    };
-    var Category = new category();
-    Category.init(url, lang);
+    $(document).ready(function () {
+        var url = {
+            'listAjax': '{!! route('admin.category.ajaxList') !!}',
+            'update': '{!! route('admin.category.ajaxUpdate') !!}',
+            'delete': '{!! route('admin.category.ajaxDelete') !!}',
+        };
+        var lang = {
+            'trans': {
+                'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
+                'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
+                'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
+            },
+            'button_text': {
+                'select_page': '{!! trans('dataTable.select_page') !!}',
+                'select_all': '{!! trans('dataTable.select_all') !!}',
+                'unselect': '{!! trans('dataTable.unselect') !!}',
+                'delete_select': '{!! trans('dataTable.delete_select') !!}'
+            },
+            'response': {
+                'key_name': '{!! config('common.flash_level_key') !!}',
+                'message_name': '{!! config('common.flash_message') !!}',
+            }
+        };
+        var Category = new category();
+        Category.init(url, lang);
+    });
 </script>
 @endsection

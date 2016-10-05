@@ -18,6 +18,11 @@ Route::group(['prefix' => 'book'], function () {
     });
 });
 
+Route::get('/search', [
+    'as' => 'book.search',
+    'uses' => 'BookController@searchBook'
+]);
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('login', ['uses' => 'AdminController@getLogin', 'as' => 'admin.getLogin']);
     Route::post('login', ['uses' => 'AdminController@postLogin', 'as' => 'admin.postLogin']);
@@ -152,3 +157,9 @@ Route::post('load-comment', [
     'uses' => 'CommentController@postLoadComment',
     'as' => 'postLoadComment'
 ]);
+
+Route::get('autocomplete', [
+    'uses' => 'BookController@bookAutocomplete',
+    'as' => 'bookAutocomplete'
+]);
+

@@ -31,6 +31,7 @@ gulp.task("copyfiles", function () {
         ['vendor/bower_dl/datatables.net-buttons/js/dataTables.buttons.min.js', publicDest[0]],
         ['vendor/bower_dl/jquery-serialize-object/dist/jquery.serialize-object.min.js', publicDest[0]],
         ['vendor/bower_dl/jquery-form/jquery.form.js', publicDest[0]],
+        ['vendor/bower_dl/EasyAutocomplete/dist/jquery.easy-autocomplete.min.js', publicDest[0]],
         //cssCopyPath
         ['vendor/bower_dl/metisMenu/dist/metisMenu.min.css', publicDest[1]],
         ['vendor/bower_dl/bootstrap/dist/css/bootstrap.min.css', publicDest[1]],
@@ -42,6 +43,7 @@ gulp.task("copyfiles", function () {
         ['vendor/bower_dl/sb-admin-2/css/sb-admin-2.css', publicDest[1]],
         ['vendor/bower_dl/jquery-bar-rating/dist/themes/fontawesome-stars.css', publicDest[1]],
         ['vendor/bower_dl/datatables.net-buttons-dt/css/buttons.dataTables.min.css', publicDest[1]],
+        ['vendor/bower_dl/EasyAutocomplete/dist/easy-autocomplete.min.css', publicDest[1]],
         //fontsCopyPath
         ['vendor/bower_dl/bootstrap/dist/fonts/**', publicDest[2]],
         ['vendor/bower_dl/font-awesome/fonts/**', publicDest[2]],
