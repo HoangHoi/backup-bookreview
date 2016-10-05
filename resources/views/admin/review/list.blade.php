@@ -153,30 +153,32 @@
 @section('script')
 {!! Html::script('js/adminReview.js') !!}
 <script type="text/javascript">
-    var url = {
-        'list': '{!! route('admin.review.ajaxList') !!}',
-        'delete': '{!! route('admin.review.ajaxDelete') !!}',
-        'getBook': '{!! route('admin.book.ajaxGetOne') !!}',
-    };
-    var lang = {
-        'trans': {
-            'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
-            'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
-            'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
-            'book_details': '{!! trans('book.details') !!}',
-        },
-        'button_text': {
-            'select_page': '{!! trans('dataTable.select_page') !!}',
-            'select_all': '{!! trans('dataTable.select_all') !!}',
-            'unselect': '{!! trans('dataTable.unselect') !!}',
-            'delete_select': '{!! trans('dataTable.delete_select') !!}',
-        },
-        'response': {
-            'key_name': '{!! config('common.flash_level_key') !!}',
-            'message_name': '{!! config('common.flash_message') !!}',
-        }
-    };
-    var Review = new review();
-    Review.init(url, lang);
+    $(document).ready(function () {
+        var url = {
+            'list': '{!! route('admin.review.ajaxList') !!}',
+            'delete': '{!! route('admin.review.ajaxDelete') !!}',
+            'getBook': '{!! route('admin.book.ajaxGetOne') !!}',
+        };
+        var lang = {
+            'trans': {
+                'unknown_error': '{!! trans('dataTable.unknown_error') !!}',
+                'confirm_select_all': '{!! trans('dataTable.confirm_select_all') !!}',
+                'confirm_delete': '{!! trans('dataTable.confirm_delete') !!}',
+                'book_details': '{!! trans('book.details') !!}',
+            },
+            'button_text': {
+                'select_page': '{!! trans('dataTable.select_page') !!}',
+                'select_all': '{!! trans('dataTable.select_all') !!}',
+                'unselect': '{!! trans('dataTable.unselect') !!}',
+                'delete_select': '{!! trans('dataTable.delete_select') !!}',
+            },
+            'response': {
+                'key_name': '{!! config('common.flash_level_key') !!}',
+                'message_name': '{!! config('common.flash_message') !!}',
+            }
+        };
+        var Review = new review();
+        Review.init(url, lang);
+    });
 </script>
 @endsection
