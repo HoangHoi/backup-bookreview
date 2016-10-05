@@ -570,8 +570,7 @@ a:focus {
     linear-gradient(
         rgba(240, 212, 0, 0.45), 
         rgba(0, 0, 0, 0.45)
-    ),
-    url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+    );
 }
 /*
     index
@@ -590,5 +589,5 @@ a:focus {
     border: 1px solid gray;
     border-radius: 5px;
     background-color: #aaa;
-    opacity: 0.8;"
+    opacity: 0.8;
 }

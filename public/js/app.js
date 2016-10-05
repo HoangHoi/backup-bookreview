@@ -37,4 +37,15 @@ $(document).ready(function () {
     $("#file_avatar").change(function () {
         readURL(this);
     });
+    var options = {
+        url: $('#input-autocomplete').data('url'),
+        getValue: "title",
+        list: {   
+            match: {
+              enabled: true
+            }
+        },
+        theme: "square"
+    };
+    $("#input-autocomplete").easyAutocomplete(options);
 });
