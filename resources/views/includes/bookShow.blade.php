@@ -50,7 +50,7 @@
                 <div style="color: #008340; margin-bottom: 0.1em">{!! $book->author !!}</div>
                 <div style="margin-bottom: 0.3em"><em>{!! $book->published_at !!}</em></div>
                 <div class="br-wrapper br-theme-fontawesome-stars">
-                    <select class="start-barrating book-start" style="display: none;">
+                    <select class="book-start" style="display: none;">
                         @foreach (range(1, config('common.rate_point_max')) as $i)
                             <option
                                 value="{!! $i !!}"

@@ -15,6 +15,7 @@ Route::group(['prefix' => 'book'], function () {
     Route::group(['middleware' => 'auth'], function() {
         Route::post('favorite', ['uses' => 'BookController@favorite', 'as' => 'book.favorite']);
         Route::post('mark', ['uses' => 'BookController@mark', 'as' => 'book.mark']);
+        Route::post('rate', ['uses' => 'BookController@rate', 'as' => 'book.rate']);
     });
 });
 

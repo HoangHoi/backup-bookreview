@@ -10,4 +10,9 @@ class Rate extends Model
     protected $fillable = [
         'user_id', 'book_id', 'point',
     ];
+
+    public function book()
+    {
+        return $this->belongsTo('App\Models\Book', 'book_id');
+    }
 }

@@ -10,6 +10,7 @@ return [
     'rate' => 'Rate',
     'favorite' => 'Favorite',
     'all' => 'All',
+    'library' => 'Book Library',
     'posted' => 'Posted at',
     'title.title_notfound' => 'Not Found',
     'db_notfound' => 'Database not found',

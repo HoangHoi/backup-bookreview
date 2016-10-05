@@ -1,10 +1,15 @@
 <nav class="navbar navbar-inverse fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('home') }}">{{ trans('label.brand') }}</a>
+            <a class="navbar-brand hvr-wobble-bottom brand-header" href="{{ route('home') }}" style="color: orange;">
+                {{ trans('label.brand') }}
+            </a>
+            <a class="navbar-brand hvr-wobble-bottom brand-header" href="{{ route('book.index') }}" style="color: orange;">
+                {{ trans('label.library') }}
+            </a>
         </div>
         {{ Form::open(['route' => 'book.search', 'method' => 'get', 'class' => 'navbar-left navbar-form']) }}
-            <div>
+            <div style="float: left; margin-right: 2em;">
                 {{ Form::text('query', null, ['id' => 'input-autocomplete', 'placeholder' => 'Search Book', 'data-url' => route('bookAutocomplete')]) }}
             </div>
             {{ Form::submit('Find', ['class' => 'btn btn-info']) }}
@@ -19,7 +24,6 @@
                     </div>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('users.show', Auth::user()->id) }}">{{ trans('user.profile.label') }}</a></li>
-                        <li><a href="#">{{ trans('user.timeline') }}</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('signout') }}">{{ trans('user.actions.logout') }}</a></li>
                     </ul>

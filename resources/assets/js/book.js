@@ -12,10 +12,13 @@ var book = function () {
         'favorite': '',
         'mark': '',
         'login': '',
+        'rate': '',
     };
     this.bookData = {
         'favorite': null,
         'mark': null,
+        'rate': null,
+        'yourRate': null,
     };
     this.request = {
         'action': null,
@@ -34,6 +37,10 @@ var book = function () {
                 'reading': 'reading',
                 'none': 'none',
             },
+            'rates': {
+                'bookRate': 'bookRate',
+                'yourRate': 'yourRate',
+            },
         },
         'result': 'result',
         'results': {
@@ -43,7 +50,9 @@ var book = function () {
         },
     };
     this.init = function (url, config, lang) {
-        this.url = url;
+        if (typeof url !== 'undefined') {
+            this.changeUrl(url);
+        }
         if (typeof lang !== 'undefined') {
             this.changeLang(lang);
         }
@@ -71,14 +80,12 @@ var book = function () {
     };
     this.changeLang = function (lang) {
         for (var p_key in this.lang) {
-            if (typeof lang[p_key] === 'undefined') {
-                continue;
-            }
-            for (var c_key in this.lang[p_key]) {
-                if (typeof lang[p_key][c_key] !== 'undefined') {
-                    this.lang[p_key][c_key] = lang[p_key][c_key];
-                }
-            }
+            this.lang[p_key] = lang[p_key];
+        }
+    };
+    this.changeUrl = function (url) {
+        for (var p_key in this.url) {
+            this.url[p_key] = url[p_key];
         }
     };
     this.addEvent = function () {
@@ -130,11 +137,36 @@ var book = function () {
                 }
             });
         });
+        $('.rate-book').barrating('show', {
+            theme: 'fontawesome-stars',
+            hoverState: false,
+            onSelect: function(value, text, event) {
+                if (typeof(event) !== 'undefined') {
+                    var bookElement = $('.rate-book');
+                    bookElement.barrating('readonly', true);
+                    current.getData(bookElement);
+                    current.request.action = value;
+                    current.sendRequest(current.url.rate, function (data) {
+                        dataJson = data.responseJSON;
+                        if (dataJson[current.config.result] === current.config.results.success) {
+                            current.bookData.rate = dataJson[current.config.action][current.config.actions.rates.bookRate];
+                            current.bookData.yourRate = dataJson[current.config.action][current.config.actions.rates.yourRate];
+                            current.putData(bookElement);
+                        } else {
+                            window.location.reload(1);
+                        }
+                    });
+                    bookElement.barrating('readonly', false);
+                }
+            }
+        });
     };
     this.getData = function (bookElement) {
         var bookContent = bookElement.parents('.book-content');
         this.bookData.favorite = bookContent.data('book-favorite');
         this.bookData.mark = bookContent.data('book-mark');
+        this.bookData.rate = bookContent.data('book-rate');
+        this.bookData.yourRate = bookContent.data('book-your-rate');
         this.request.id = bookContent.data('book-id');
     };
     this.putData = function (bookElement) {
@@ -157,6 +189,8 @@ var book = function () {
                 bookContent.find('.current-mark').removeClass('fa-file-text-o fa-file-text');
                 break;
         }
+        bookContent.find('.book-start').barrating('set', this.bookData.rate);
+        bookContent.find('.rate-book').barrating('set', this.bookData.yourRate);
     };
     this.sendRequest = function (url, calback) {
         var current = this;

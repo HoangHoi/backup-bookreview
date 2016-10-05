@@ -64,6 +64,11 @@
                 'comfirm_login': '{!! trans('book.comfirm_login') !!}',
             }
         );
+        $('.book-start').barrating({
+            theme: 'fontawesome-stars',
+            hoverState: false,
+            readonly: true,
+        });
     });
 </script>
 @endsection

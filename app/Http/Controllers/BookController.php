@@ -8,7 +8,9 @@ use App\Models\Book;
 use App\Models\Review;
 use App\Models\Favorite;
 use App\Models\Mark;
+use App\Models\Rate;
 use App\Http\Requests\MarkRequest;
+use App\Http\Requests\RateRequest;
 use App\Models\Category;
 use Auth;
 
@@ -148,6 +150,9 @@ class BookController extends Controller
             'favorites' => function($query) {
                 $query->where('user_id', $this->userId);
             },
+            'rates' => function($query) {
+                $query->where('user_id', $this->userId);
+            },
         ])->findOrFail($bookId);
         $reviews = Review::where('book_id', $bookId)->orderBy('created_at', 'desc')->paginate(5);
 
@@ -277,5 +282,52 @@ class BookController extends Controller
             'bookMenu' => $this->bookMenu(null),
             'breadcrumbs' => $this->drawBreadcrumbs(null),
         ]);
+    }
+
+    public function rate(RateRequest $request)
+    {
+        $rate = Rate::where('user_id', $this->userId)->where('book_id', $request->id)->first();
+        $book = Book::find($request->id);
+        if ($rate) {
+            if ($rate->update(['point' => $request->action]) && $pointAvg = $this->avgRate($book)) {
+                return [
+                    config('book.action') => [
+                        config('book.actions.rates.your_rate') => $request->action,
+                        config('book.actions.rates.book_rate') => $pointAvg,
+                    ],
+                    config('book.result') => config('book.results.success'),
+                ];
+            }
+        } else {
+            if (Rate::create([
+                'user_id' => $this->userId,
+                'book_id' => $request->id,
+                'point' => $request->action,
+            ]) && $pointAvg = $this->avgRate($book)) {
+                return [
+                    config('book.action') => [
+                        config('book.actions.rates.your_rate') => $request->action,
+                        config('book.actions.rates.book_rate') => $pointAvg,
+                    ],
+                    config('book.result') => config('book.results.success'),
+                ];
+            }
+        }
+
+        return [
+            config('book.action') => [
+                config('book.actions.rates.your_rate') => $request->action,
+                config('book.actions.rates.book_rate') => $book->avg_rate_point,
+            ],
+            config('book.result') => config('book.results.fail'),
+        ];
+    }
+
+    protected function avgRate (Book $book) {
+        if ($book->update(['avg_rate_point' => $book->rates()->avg('point')])) {
+            return ceil($book->avg_rate_point);
+        }
+
+        return false;
     }
 }

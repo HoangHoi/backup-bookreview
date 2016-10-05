@@ -71,3 +71,14 @@ $factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
         },
     ];
 });
+$factory->define(App\Models\Rate::class, function (Faker\Generator $faker) {
+    return [
+        'point' => rand(0, 5),
+        'user_id' => function () {
+            return App\Models\User::inRandomOrder()->first()->id;
+        },
+        'book_id' => function () {
+            return App\Models\Book::inRandomOrder()->first()->id;
+        },
+    ];
+});

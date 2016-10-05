@@ -186,6 +186,7 @@
         selector : '#rv-content',
         selection_toolbar: 'bold italic | quicklink h2 h3',
         menubar: false,
+        statusbar: false,
         plugins: 'link',
         toolbar: 'fontsizeselect bold italic | h2 | blockquote alignleft aligncenter alignright alignfull',
         fontsize_formats: "12pt 14pt 18pt"

@@ -11,6 +11,10 @@ return [
             'reading' => 'reading',
             'none' => 'none',
         ],
+        'rates' => [
+            'book_rate' => 'bookRate',
+            'your_rate' => 'yourRate',
+        ],
     ],
     'result' => 'result',
     'results' => [
