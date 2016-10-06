@@ -109,7 +109,11 @@ class User extends Authenticatable
 
     public function getAvatarLinkAttribute()
     {
-        return asset(config('upload.image_upload') . $this->attributes['avatar_link']);
+        if (File::exists(public_path(config('fileupload.book_image_dir') . $value))) {
+            return asset(config('upload.image_upload') . $this->attributes['avatar_link']);
+        }
+
+        return asset(config('upload.image_upload') . config('upload.default'));
     }
 
     protected $appends = ['gender_name'];
