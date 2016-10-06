@@ -10,7 +10,10 @@
         </div>
         <div class="col-md-9 description-book">
             <div class="row">
-                <h3>{{ $review->book->title }}</h3>
+                <h3>
+                    {{ $review->book->title }}
+                    <a href="{{ route('book.show', ['id' => $review->book->id]) }}">{!! $review->book->title !!}</a>
+                </h3>
             </div>
             <div class="row">
                 <div class="col-sm-3">
