@@ -37,6 +37,7 @@
                         class="btn btn-primary"
                         data-toggle="tooltip"
                         data-placement="top"
+                        style="color: white"
                         title="{{ trans('user.review.msg_tooltip') }}"
                     >
                         {{ trans('user.review.write') }}
