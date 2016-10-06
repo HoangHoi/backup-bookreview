@@ -175,4 +175,23 @@ class UserController extends Controller
             500
         ]);
     }
+
+    public function postCancelRequest(Request $request)
+    {
+        $requestBook = BookRequest::where('user_id', Auth::user()->id)->where('book_id', $request->bookId)->where('accepted', false);
+
+        if ($requestBook) {
+            if ($requestBook->delete()) {
+                return response()->json([
+                    'success' => trans('user.msg_success_del_request'),
+                    200
+                ]);
+            }
+        } else {
+            return response()->json([
+                'err' => trans('user.msg_unsuccess'),
+                500
+            ]);
+        }
+    }
 }

@@ -160,6 +160,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'BookController@getBookRequest',
         'as' => 'getBookRequest'
     ]);
+
+    Route::post('cancel-request', [
+        'uses' => 'UserController@postCancelRequest',
+        'as' => 'postCancelRequest'
+    ]);
 });
 
 Route::resource('reviews', 'ReviewController');
