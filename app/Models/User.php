@@ -109,7 +109,7 @@ class User extends Authenticatable
 
     public function getAvatarLinkAttribute($value)
     {
-        if (File::exists(public_path(config('fileupload.image_upload') . $value))) {
+        if (File::exists(public_path(config('upload.image_upload') . $value))) {
             return asset(config('upload.image_upload') . $value);
         }
 
