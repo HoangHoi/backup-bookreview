@@ -84,7 +84,7 @@ class User extends Authenticatable
 
     public function setAvatarLinkAttribute($avatar)
     {
-        $imgFolder = config('upload.image_upload');
+        $imgFolder = public_path(config('upload.image_upload'));
         if (!File::isDirectory($imgFolder)) {
             File::makeDirectory($imgFolder, 775, true);
         }
