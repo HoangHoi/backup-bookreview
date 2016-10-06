@@ -19,12 +19,12 @@ class UserController extends Controller
     public function ajaxList()
     {
         $users = User::withCount([
-            'reviews',
-            'readBooks',
-            'readingBooks',
-            'followings',
-            'followers',
-        ])->where('is_admin', false)->get();
+                'reviews',
+                'readBooks',
+                'readingBooks',
+                'followings',
+                'followers',
+            ])->where('is_admin', false)->get();
 
         return [
             'data' => $users,
@@ -112,9 +112,9 @@ class UserController extends Controller
                 'email',
                 'gender',
                 'password',
-                'avatar_link',
-                'is_admin',
             ]);
+            $userRequest['avatar_link'] = config('upload.default');
+            $userRequest['is_admin'] = false;
             User::create($userRequest);
 
             return [
