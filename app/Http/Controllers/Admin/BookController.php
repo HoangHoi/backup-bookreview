@@ -129,13 +129,16 @@ class BookController extends Controller
             'category_id',
             'published_at',
         ];
-        if ($request->hasFile('book_image') || $request->reset_image == 'true') {
+        if ($request->hasFile('book_image')) {
             $requestArray[] = 'book_image';
         }
 
         try {
             $book = Book::find($request->id);
             $bookRequest = $request->only($requestArray);
+            if ($request->reset_image == 'true') {
+                $bookRequest['book_image'] = null;
+            }
             $book->update($bookRequest);
 
             return [
