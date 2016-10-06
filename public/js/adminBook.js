@@ -220,7 +220,7 @@ function book() {
             $('#published_at').val(rdata.published_at);
             $('#description').val(rdata.description.replace(/<br \/>/g, ''));
             $('#book_image').attr('src', rdata.book_image);
-            $('[name = reset_image]').val(false)
+            $('[name = reset_image]').val(false);
             $('#myModal').modal('show');
             $('#book-image-file').on('change', function () {
                 if (this.files && this.files[0]) {
