@@ -217,6 +217,9 @@ function user() {
             current.request = form.serializeObject();
             inputs.prop('disabled', true);
             current.sendRequest(current.link, function (data) {
+                $.each(data, function (i, v){
+                    console.log(i+':'+v);
+                });
                 current.table.ajax.reload(null, false);
                 if (data.status === 200) {
                     $('#myModal').modal('hide');
