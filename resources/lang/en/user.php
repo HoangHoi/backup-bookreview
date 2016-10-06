@@ -20,9 +20,10 @@ return [
     'female' => 'Female',
     'profile' => [
         'label' => 'Profile',
+        'preview' => 'View Profile',
         'review' => 'Reviews',
         'following' => 'Following',
-        'follower' => 'Folower',
+        'follower' => 'Follower',
         'post_review' => 'Reviews Posted',
         'reviews' => 'reviews',
         'not_exist' => 'User does not exist',

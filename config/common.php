@@ -29,4 +29,5 @@ return [
     'top_review_min_text_length' => 200,
     'limit_top_review' => 10,
     'limit_review' => 30,
+    'limit_user' => 15,
 ];

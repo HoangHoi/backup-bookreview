@@ -30,12 +30,12 @@ class CommentController extends Controller
         }
 
         $currentReview = Review::withCount('comments')->findOrFail($request->reviewId);
-        $htmlComents = '<span id="rv-num-comments">'
+        $htmlComments = '<span id="rv-num-comments">'
             . trans('user.comments', ['num_comment' => $currentReview->comments_count])
             . '</span>';
 
         return response()->json([
-            'htmlComents' => $htmlComents,
+            'htmlComments' => $htmlComments,
             'htmlValue' => view('includes.itemComment', ['comment' => $comment])->render(),
             200
         ]);
@@ -48,10 +48,14 @@ class CommentController extends Controller
             $result = $comment->delete();
             if ($result) {
                 $currentReview = Review::withCount('comments')->findOrFail($request->reviewId);
+                $htmlComments = '<span id="rv-num-comments">'
+                    . trans('user.comments', ['num_comment' => $currentReview->comments_count])
+                    . '</span>';
 
                 return response()->json([
                     'status' =>  trans('user.yes'),
                     'num_comment' => $currentReview->comments_count,
+                    'htmlComments' => $htmlComments,
                     200
                 ]);
             }

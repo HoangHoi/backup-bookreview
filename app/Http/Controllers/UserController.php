@@ -20,7 +20,7 @@ class UserController extends Controller
             if (Auth::user()->id != $id) {
                 $action = UserService::checkFollowed($id, Auth::user()->id) ? trans('user.actions.unfollow') : trans('user.actions.follow');
             } else {
-                $action = trans('user.actions.edit');
+                $action = trans('user.profile.preview');
             }
         } else {
             $action = null;

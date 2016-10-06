@@ -116,12 +116,12 @@ Route::post('signin', [
 Route::resource('users', 'UserController');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('profile-preview', [
+    Route::get('profile/edit', [
         'uses' => 'UserController@getEditProfile',
         'as' => 'getEditProfile'
     ]);
 
-    Route::post('profile-preview', [
+    Route::post('profile/edit', [
         'uses' => 'UserController@postUpdateProfile',
         'as' => 'updateProfile'
     ]);
@@ -163,4 +163,3 @@ Route::get('autocomplete', [
     'uses' => 'BookController@bookAutocomplete',
     'as' => 'bookAutocomplete'
 ]);
-

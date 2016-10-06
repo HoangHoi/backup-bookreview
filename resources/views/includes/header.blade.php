@@ -23,7 +23,7 @@
                         <span class="caret"></span>
                     </div>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('users.show', Auth::user()->id) }}">{{ trans('user.profile.label') }}</a></li>
+                        <li><a href="{{ route('users.show', Auth::user()->id) }}">{{ trans('user.timeline') }}</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('signout') }}">{{ trans('user.actions.logout') }}</a></li>
                     </ul>

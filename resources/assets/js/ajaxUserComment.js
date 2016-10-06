@@ -17,7 +17,7 @@ $('#icon-submit-comment').click(function() {
             } else {
                 $('#comment-content').val('');
                 $('.comment').append(msg['htmlValue']);
-                $('#rv-num-comments').html(msg['htmlComents']);
+                $('#rv-num-comments').html(msg['htmlComments']);
             }
         },
         complete: function() {

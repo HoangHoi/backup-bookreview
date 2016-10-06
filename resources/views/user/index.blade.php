@@ -1,14 +1,6 @@
 @extends('layouts.usermaster')
 
 @section('content')
-<header class="header-container">
-    <div class="section bottombar padding-16">
-        <a class="btn btn-info" href="{!! route('book.index') !!}">
-            <i class="fa fa-book margin-right"></i>
-            {{ trans('label.all') }}
-        </a>
-    </div>
-</header>
 <div class="container">
     <div class="row">
         <div class="col-md-9 col-lg-9 post-left">
