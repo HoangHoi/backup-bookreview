@@ -86,6 +86,7 @@ function review() {
                 },
                 {'data': 'comments_count'},
                 {'data': 'users_likes_count'},
+                {'data': 'created_at'},
                 {
                     'orderable': false,
                     'searchable': false,
@@ -99,7 +100,7 @@ function review() {
                     'defaultContent': ' '
                 }
             ],
-            'order': [1, 'asc'],
+            'order': [6, 'desc'],
             select: {
                 style: 'multi',
                 selector: 'td:last-child'

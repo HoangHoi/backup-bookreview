@@ -99,7 +99,7 @@ function book() {
                     'defaultContent': ' '
                 }
             ],
-            'order': [1, 'asc'],
+            'order': [5, 'desc'],
             select: {
                 style: 'multi',
                 selector: 'td:last-child'

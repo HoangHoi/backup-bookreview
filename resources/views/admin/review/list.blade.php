@@ -15,6 +15,7 @@
             <th>{!! trans('review.content') !!}</th>
             <th><i class="fa fa-comments-o" aria-hidden="true"></i></th>
             <th><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></th>
+            <th>{!! trans('bookRequest.date_time') !!}</th>
             <th></th>
             <th></th>
         </tr>
@@ -27,6 +28,7 @@
             <th>{!! trans('review.content') !!}</th>
             <th><i class="fa fa-comments-o" aria-hidden="true"></i></th>
             <th><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></th>
+            <th>{!! trans('bookRequest.date_time') !!}</th>
             <th></th>
             <th></th>
         </tr>

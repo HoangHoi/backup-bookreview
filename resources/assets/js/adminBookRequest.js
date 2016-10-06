@@ -104,7 +104,7 @@ function bookRequest() {
                     'defaultContent': ' '
                 }
             ],
-            'order': [1, 'asc'],
+            'order': [4, 'desc'],
             select: {
                 style: 'multi',
                 selector: 'td:last-child'
