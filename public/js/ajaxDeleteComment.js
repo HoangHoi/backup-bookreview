@@ -24,6 +24,7 @@ $('#btn-confirm-delete').on('click', function() {
             }
             if (msg['status'] == 'Yes') {
                 $('#item-comment-' + commentId).remove();
+                $('#rv-num-comments').html(msg['htmlComments']);
             }
         },
         complete: function() {
