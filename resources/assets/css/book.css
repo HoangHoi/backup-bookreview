@@ -169,6 +169,6 @@ article p {
     width:100%;
     box-shadow: 4px 4px 2px #888888;
 }
-.book-detail .book-top .btn-info {
-    margin-left: 70px;
+.book-detail .book-top .btn-primary {
+    margin-left: 20px;
 }

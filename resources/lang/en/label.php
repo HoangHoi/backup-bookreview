@@ -15,6 +15,10 @@ return [
     'title.title_notfound' => 'Not Found',
     'db_notfound' => 'Database not found',
     'right_back' => 'Please right back',
+    'book_request' => 'Book Request',
+    'status' => 'Status',
+    'null_request' => 'You have no request',
+    'book_request_heading' => 'List all your requested books',
     'footer' => [
         'about' => 'About Us',
         'position' => 'Programmer',

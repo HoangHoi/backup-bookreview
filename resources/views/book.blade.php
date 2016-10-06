@@ -8,7 +8,7 @@
         @include('includes.bookShow')
     @endforeach
 @else
-    <h2>{{ trans('book.not_found') }}</h2>
+    <h2>{{ trans('book.category_empty') }}</h2>
 @endif
 <div class="col-lg-12">
     {!! $books->render() !!}

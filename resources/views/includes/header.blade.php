@@ -15,20 +15,25 @@
             {{ Form::submit('Find', ['class' => 'btn btn-info']) }}
         {{ Form::close() }}
         @if (Auth::check())
-            <ul class="nav navbar-nav navbar-right user-header">
-                <li>
-                    <div class="dropdown-toggle dropdown-user" data-toggle="dropdown">
-                        <img src="{{ Auth::user()->avatar_link }}" alt="avt-img">
-                        {{ Auth::user()->name }}
-                        <span class="caret"></span>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('users.show', Auth::user()->id) }}">{{ trans('user.timeline') }}</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{ route('signout') }}">{{ trans('user.actions.logout') }}</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div>
+                <ul class="nav navbar-nav navbar-right user-header">
+                    <li>
+                        <div class="dropdown-toggle dropdown-user" data-toggle="dropdown">
+                            <img src="{{ Auth::user()->avatar_link }}" alt="avt-img">
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('users.show', Auth::user()->id) }}">{{ trans('user.profile.label') }}</a></li>
+                            <li>
+                                <a href="{{ route('getBookRequest') }}">{{ trans('user.cart') }}</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="{{ route('signout') }}">{{ trans('user.actions.logout') }}</a></li>
+                        </ul>
+                    </li>
+                </ul>    
+            </div>
         @else
             <ul class="nav navbar-nav navbar-right">
                 <li>

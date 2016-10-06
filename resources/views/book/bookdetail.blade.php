@@ -34,13 +34,16 @@
                         aria-hidden="true"
                     ></i>
                     <a href="{{ route('getCreateReview', $book->id) }}"
-                        class="btn btn-info"
+                        class="btn btn-primary"
                         data-toggle="tooltip"
                         data-placement="top"
                         title="{{ trans('user.review.msg_tooltip') }}"
                     >
                         {{ trans('user.review.write') }}
                     </a>
+                    <button class="btn btn-primary" id="btn-buy" data-book-id="{{ $book->id }}" data-url-post-buy-book="{{ route('buyBook') }}">
+                        {{ trans('user.actions.buy') }}
+                    </button>
                     <div class="fa-pull-right dropdown" style="color: tomato; cursor: pointer">
                         <div class="dropdown-toggle" data-toggle="dropdown">
                             <i class="current-mark fa {!!
@@ -117,7 +120,7 @@
                             </div>
                             <div class="description-content" style="padding: 15px;">
                                 <h5 style="font-size: 1.3em; color: white;">
-                                    {{ $book->description }}
+                                    {!! $book->description !!}
                                 </h5>
                             </div>
                         </div>
@@ -159,6 +162,7 @@
 
 @section('script')
 {{ Html::script('js/book.js') }}
+{{ Html::script('js/ajaxBuyBook.js') }}
 <script>
     $(document).ready(function () {
         var Book = new book();

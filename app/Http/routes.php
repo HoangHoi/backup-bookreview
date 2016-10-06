@@ -150,6 +150,16 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'CommentController@postDeleteComment',
         'as' => 'postDeleteComment'
     ]);
+
+    Route::post('buy-book', [
+        'uses' => 'UserController@postBuyBook',
+        'as' => 'buyBook'
+    ]);
+
+    Route::get('book-request', [
+        'uses' => 'BookController@getBookRequest',
+        'as' => 'getBookRequest'
+    ]);
 });
 
 Route::resource('reviews', 'ReviewController');

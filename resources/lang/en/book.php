@@ -35,4 +35,5 @@ return [
     'your_rate' => 'Your rate:',
     'rate_book' => 'Rate this book',
     'comfirm_login' => 'You have to login to do this action',
+    'category_empty' => 'Category is empty',
 ];

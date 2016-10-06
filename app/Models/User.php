@@ -69,7 +69,7 @@ class User extends Authenticatable
 
     public function bookRequests()
     {
-        return $this->belongsToMany('App\Models\Book', 'book_requests');
+        return $this->belongsToMany('App\Models\Book', 'book_requests')->withPivot('accepted', 'created_at');
     }
 
     public function setNameAttribute($value)

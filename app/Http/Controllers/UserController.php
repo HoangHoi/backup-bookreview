@@ -10,7 +10,10 @@ use App\Models\UserFollow;
 use App\Models\Review;
 use App\Models\LikeEvent;
 use App\Providers\UserService;
+use App\Models\Book;
+use App\Models\BookRequest;
 use Auth;
+use App\Http\Controllers\BookController;
 
 class UserController extends Controller
 {
@@ -138,6 +141,38 @@ class UserController extends Controller
         return response()->json([
             'likeAction' => $likeAction,
             'htmlVal' => $htmlVal,
+        ]);
+    }
+
+    public function postBuyBook(Request $request) {
+        $bookId = $request->bookId;
+        $userId = Auth::user()->id;
+        if (!Book::find($bookId)) {
+            return response()->json([
+                'err' => trans('user.msg_null_book'),
+                404
+            ]);
+        }
+
+        if (BookRequest::where('user_id', $userId)->where('book_id', $bookId)->first()) {
+            return response()->json([
+                'err' => trans('user.msg_exist_book_request')
+            ]);
+        }
+
+        $params['user_id'] = $userId;
+        $params['book_id'] = $bookId;
+        $params['accepted'] = false;
+        if (BookRequest::create($params)) {
+            return response()->json([
+                'success' => trans('user.msg_success'),
+                200
+            ]);
+        }
+
+        return response()->json([
+            'err' => trans('user.msg_unsuccess'),
+            500
         ]);
     }
 }

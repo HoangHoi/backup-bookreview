@@ -30,4 +30,5 @@ return [
     'limit_top_review' => 10,
     'limit_review' => 30,
     'limit_user' => 15,
+    'limit_show_request' => 20,
 ];

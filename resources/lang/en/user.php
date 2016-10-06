@@ -5,6 +5,10 @@ return [
     'msg_unsuccess_update_profile' => 'Profile update failed',
     'msg_success_update_profile' => 'Profile update successful',
     'msg_unsuccess_follow_user' => 'Can not follow',
+    'msg_null_book' => 'This book is not available',
+    'msg_exist_book_request' => 'Already requested to buy this book before',
+    'msg_success' => 'Send request success. Click profile to view your shopping cart',
+    'msg_unsuccess' => 'Failed',
     'signin_to_make_comment' => 'Sign-in to make comment',
     'res_title' => 'Register account',
     'update_profile' => 'Update Profile',
@@ -18,6 +22,9 @@ return [
     'password_repeat' => 'Repeat password',
     'male' => 'Male',
     'female' => 'Female',
+    'cart' => 'Shopping cart',
+    'in_progress' => 'In progress',
+    'accepted' => 'Accepted',
     'profile' => [
         'label' => 'Profile',
         'preview' => 'View Profile',
@@ -57,6 +64,8 @@ return [
     'cancel' => 'Cancel',
     'yes' => 'Yes',
     'comment' => [
+        'edit' => 'Edit',
+        'delete' => 'Delete',
         'confirm_delete' => 'Are you sure want to delete this comment',
         'cannot_delete' => 'Cannot delete this comment',
     ],
@@ -71,6 +80,8 @@ return [
         'update' => 'Update',
         'follow' => 'Follow',
         'unfollow' => 'UnFollow',
+        'buy' => 'Buy',
+        'cancel' => 'Cancel',
     ],
     'write_content' => 'Write :name',
 ];

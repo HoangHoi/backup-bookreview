@@ -41,7 +41,6 @@
                 @endif
             </marquee>
         </div>
-        <span class="text-center">{{ $reviews->links() }}</span>
     </div>
 </div>
 @endsection

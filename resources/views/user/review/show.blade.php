@@ -119,11 +119,11 @@
                                             </i>
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <button>{{ trans('user.action.edit') }}</button>
+                                                    <button>{{ trans('user.comment.edit') }}</button>
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li>
-                                                    <button id="btn-delete-comment" data-toggle="modal" data-target="#delete-cmt-modal">{{ trans('user.delete') }}</button>
+                                                    <button id="btn-delete-comment" data-toggle="modal" data-target="#delete-cmt-modal">{{ trans('user.comment.delete') }}</button>
                                                 </li>
                                             </ul>
                                         </div>
@@ -160,7 +160,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <strong class="modal-title">{{ trans('user.delete') }}</strong>
+                <strong class="modal-title">{{ trans('user.comment.delete') }}</strong>
             </div>
             <div class="modal-body">
                 <p>{{ trans('user.comment.confirm_delete') }}</p>
