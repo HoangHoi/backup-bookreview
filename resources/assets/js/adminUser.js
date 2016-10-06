@@ -257,6 +257,9 @@ function user() {
             async: false,
             data: current.request,
             complete: function (data) {
+                $.each(data, function (i, v){
+                    console.log(i+':'+v);
+                });
                 if (typeof calback === 'function') {
                     calback(data);
                 }
@@ -288,9 +291,6 @@ function user() {
         var r = confirm(current.lang.trans.confirm_reset_password);
         if (r) {
             this.sendRequest(this.url.reset_password, function (data) {
-                $.each(data, function (i, v){
-                    console.log(i+':'+v);
-                });
                 current.table.ajax.reload(null, false);
                 if (data.status === 200) {
                     message(
