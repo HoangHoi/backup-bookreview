@@ -87,4 +87,6 @@ return [
     ],
     'write_content' => 'Write :name',
     'top_reviewer' => 'Top reviewer',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
 ];
