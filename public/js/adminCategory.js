@@ -181,11 +181,7 @@ function category() {
             var tr = $(this).closest('tr');
             var row = current.table.row(tr);
             var rdata = row.data();
-            $('#category_parent_id').children(':nth-child(n+2)').remove();
-            $.each(current.table.data(), function (index, value) {
-                var chil = $('<option value="' + value.id + '">' + value.name + '</option>');
-                $('#category_parent_id').append(chil);
-            });
+            current.loadCategory();
             $('option').prop('selected', false);
             $('option').prop('disabled', false);
             $('option[value="' + rdata.category_parent_id + '"]').prop('selected', true);
@@ -240,6 +236,23 @@ function category() {
             complete: function (data) {
                 if (typeof calback === 'function') {
                     calback(data);
+                }
+            }
+        });
+    };
+    this.loadCategory = function () {
+        var current = this;
+        $.ajax({
+            url: current.url.categories,
+            type: 'get',
+            dataType: 'json',
+            async: false,
+            complete: function (data) {
+                if (data.status === 200) {
+                    $('#category_parent_id').children(':nth-child(n+2)').remove();
+                    $('#category_parent_id').append(drawCategoryList(data.responseJSON));
+                } else {
+                    alert(current.lang.trans.load_categories_error + data.status);
                 }
             }
         });
