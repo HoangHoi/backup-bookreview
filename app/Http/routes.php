@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         ]);
         Route::group(['prefix' => 'category/ajax'], function() {
             Route::get('list', ['uses' => 'CategoryController@ajaxList', 'as' => 'admin.category.ajaxList']);
+            Route::get('list-only', ['uses' => 'CategoryController@ajaxListOnly', 'as' => 'admin.category.ajaxListOnly']);
             Route::delete('delete', ['uses' => 'CategoryController@ajaxDelete', 'as' => 'admin.category.ajaxDelete']);
             Route::post('update', ['uses' => 'CategoryController@ajaxUpdate', 'as' => 'admin.category.ajaxUpdate']);
         });

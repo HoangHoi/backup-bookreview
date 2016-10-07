@@ -90,6 +90,7 @@
             'listAjax': '{!! route('admin.category.ajaxList') !!}',
             'update': '{!! route('admin.category.ajaxUpdate') !!}',
             'delete': '{!! route('admin.category.ajaxDelete') !!}',
+            'categories': '{!! route('admin.category.ajaxListOnly') !!}',
         };
         var lang = {
             'trans': {

@@ -10,6 +10,24 @@ function message(id, s, m) {
     $(id).slideDown();
     $(id).delay(3000).slideUp();
 }
+function drawCategoryList(categories, categoryParentId, pre) {
+    var response = '';
+    if (typeof categoryParentId === 'undefined') {
+        categoryParentId = null;
+    }
+    if (typeof pre === 'undefined') {
+        pre = '';
+    }
+    $.each(categories, function (key, category) {
+        if (category.category_parent_id === categoryParentId) {
+            var drawChil = drawCategoryList(categories, category.id, pre + '- ');
+            response += '<option value="' + category.id + '">' + pre + category.name + '</option>';
+            response += drawChil;
+        }
+    });
+    console.log(response);
+    return response;
+}
 $(document).ready(function () {
     $('#side-menu').metisMenu();
     $('.alert').delay(3000).slideUp();

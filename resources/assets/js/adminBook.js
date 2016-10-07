@@ -156,10 +156,7 @@ function book() {
             complete: function (data) {
                 if (data.status === 200) {
                     $('#category_id').children(':nth-child(n+2)').remove();
-                    $.each(data.responseJSON.data, function (index, value) {
-                        var chil = $('<option value="' + value.id + '">' + value.name + '</option>');
-                        $('#category_id').append(chil);
-                    });
+                    $('#category_id').append(drawCategoryList(data.responseJSON));
                 } else {
                     alert(current.lang.trans.load_categories_error + data.status);
                 }

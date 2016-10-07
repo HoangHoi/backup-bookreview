@@ -51,6 +51,25 @@ class CategoryController extends Controller
         ];
     }
 
+    public function ajaxListOnly()
+    {
+        $categories = Category::all();
+        foreach ($categories as $category) {
+            $update = true;
+            foreach ($categories as $categoryParent) {
+                if ($category->category_parent_id == $categoryParent->id) {
+                    $update = false;
+                    continue;
+                }
+            }
+            if ($update) {
+                $category->update(['category_parent_id' => null]);
+            }
+        }
+
+        return $categories;
+    }
+
     public function ajaxDelete(Request $request)
     {
         $resultCount = 0;

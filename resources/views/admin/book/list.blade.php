@@ -184,7 +184,7 @@
             'list': '{!! route('admin.book.ajaxList') !!}',
             'update': '{!! route('admin.book.ajaxUpdate') !!}',
             'delete': '{!! route('admin.book.ajaxDelete') !!}',
-            'categories': '{!! route('admin.category.ajaxList') !!}',
+            'categories': '{!! route('admin.category.ajaxListOnly') !!}',
         };
         var lang = {
             'trans': {
